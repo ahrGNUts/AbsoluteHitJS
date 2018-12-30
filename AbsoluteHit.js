@@ -4,32 +4,41 @@
 	@author pstrube
 */
 
-var bod = document.body;
 var abshitAudio = document.createElement('AUDIO');
-var emptyPage = false;
-var win = window.visualViewport;
-var imgPath = "assets/v/marker.something";
+var imgPath48 = getCursorPath(48);
+var imgPath32 = getCursorPath(32);
 
 abshitAudio.id = "abshit";
 abshitAudio.src = "assets/a/hitmarker.mp3";
 abshitAudio.preload = "auto";
-bod.appendChild(abshitAudio);
-
-if(bod.clientHeight == 0){
-	emptyPage = true;
-	bod.style.height = window.innerHeight + "px";
-}
+document.body.appendChild(abshitAudio);
 
 // HEY! LISTEN!
 
-bod.addEventListener("mousedown", function() {
-	abshitAudio.play();
+window.document.addEventListener("mousedown", function() {
+	document.getElementsByTagName('html')[0].style.cursor = "url(" + imgPath32 + "), auto";
+	
+	abshitAudio.play(); 
+	
+	setTimeout(function(){
+		document.getElementsByTagName('html')[0].style.cursor = "auto";
+	}, 100);
 });
 
-bod.addEventListener("resize", function() {
-	bod.style.height = window.innerHeight;
-});
+// helper
+function getCursorPath(suffix) {
+	var scripts = document.getElementsByTagName("script");
+	var path;
 
-win.addEventListener("resize", function() {
-	// set body's height to the size of the viewport but only if it doesn't fit as is
-})
+	for(var i = 0; i < scripts.length; i++){
+		if(scripts[i].src.includes("AbsoluteHit.js")){
+			path = scripts[i].src;
+			break;
+		}
+	}
+
+	var lastSlash = path.lastIndexOf('/');
+	path = path.slice(0, lastSlash+1);
+
+	return path + "assets/v/marker_" + suffix + ".png";
+}
