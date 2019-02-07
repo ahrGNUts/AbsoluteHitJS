@@ -67,7 +67,6 @@ function getPluginRoot() {
 function wrapperLabelClicked(target, subTypes){
 	if(target.nodeName == "LABEL" && target.children.length > 0){
 		for(let element of target.children){
-			console.log(element)
 			if(element.nodeName == "INPUT" && subTypes.includes(element.type))
 				return true;
 		}
