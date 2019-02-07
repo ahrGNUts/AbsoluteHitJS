@@ -2,7 +2,7 @@
 	@file AbsoluteHit.js
 	@see https://bitbucket.org/pstrube/AbsoluteHit.git
 	@author pstrube
-	@version 1.2
+	@version 1.3
 
 	TODO:
 	fix lag in safari -- may not be possible because apple?
@@ -25,7 +25,16 @@ document.body.appendChild(abshitAudio);
 window.document.addEventListener("mousedown", event => {
 	let oldAnchorStyle;
 
-	if(event.target.nodeName == "A" || event.target.nodeName == "BUTTON"){
+	let validNodes = ["A", "BUTTON", "INPUT", "LABEL"];
+	let validSubTypes = ["radio", "checkbox"];
+
+	if(validNodes.includes(event.target.nodeName)){
+		if(event.target.nodeName == "INPUT" && !validSubTypes.includes(event.target.type))
+			return;
+
+		if(event.target.nodeName == "LABEL" && !wrapperLabelClicked(event.target, validSubTypes))
+			return
+
 		oldAnchorStyle = event.target.style.cursor;
 		event.target.style.cursor = "url(" + imgPath32 + "), auto";
 		document.getElementsByTagName('html')[0].style.cursor = "url(" + imgPath32 + "), auto";
@@ -40,7 +49,7 @@ window.document.addEventListener("mousedown", event => {
 });
 
 
-// helper
+// helpers
 function getPluginRoot() {
 	var scripts = document.getElementsByTagName("script");
 	var path;
@@ -53,4 +62,15 @@ function getPluginRoot() {
 			return path.slice(0, lastSlash+1);
 		}
 	}
+}
+
+function wrapperLabelClicked(target, subTypes){
+	if(target.nodeName == "LABEL" && target.children.length > 0){
+		for(let element of target.children){
+			console.log(element)
+			if(element.nodeName == "INPUT" && subTypes.includes(element.type))
+				return true;
+		}
+	}
+	return false;
 }
