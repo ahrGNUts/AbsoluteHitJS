@@ -5,7 +5,7 @@
 
   		<style>
 
-  			h1, button, a {
+  			h1, h2, button, a {
   				font-family: "Comic Sans MS", cursive, sans-serif;
   				text-align: center;
   			}
@@ -24,6 +24,7 @@
   		
   		<h1>Click anywhere to test</h1>
   		<br>
+      <h2>When you install this on your site, make sure the script is added in the footer!</h2>
   		<br>
   		
   		<div class="container">
@@ -36,6 +37,50 @@
   		<div class="container">
   			<a href="#">Here's a link to test</a>
   		</div>
+
+      <br>
+      <br>
+
+      <div class="container">
+        <input type="text" placeholder="shouldn't do anything" style="width: 190px;">
+        <br>
+        <br>
+        <label>This orphan label that shouldn't react. Labels below have inputs wrapped into them, so they will react.</label>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="two-col" style="width: 180px; margin: 0 auto;">
+        <div class="container" style="float: left;">
+          
+          <label>
+            <input type="radio" name="rad" value="Radio">Radio
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="rad" value="buttons">buttons
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="rad" value="work">work
+          </label>
+        </div>
+
+        <div class="container" style="float: left;">
+          <label>
+            <input type="checkbox" name="chk" value="Checkboxes">Checkboxes
+          </label>
+          <br>
+          <label>
+            <input type="checkbox" name="chk" value="good">good
+          </label>
+          <br>
+          <label>
+            <input type="checkbox" name="chk" value="time!">time!
+          </label>
+        </div>
+      </div>
   		
   		<footer>
   			<script src="AbsoluteHit.js"></script>
