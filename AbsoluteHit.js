@@ -1,8 +1,10 @@
 /*
 	@file AbsoluteHit.js
 	@see https://bitbucket.org/pstrube/AbsoluteHit.git
-	@author pstrube
-	@version 1.3
+	@version 1.4
+	@author Patrick Strube
+	
+	Commercial use prohibited.
 
 	TODO:
 	fix lag in safari -- may not be possible because apple?
