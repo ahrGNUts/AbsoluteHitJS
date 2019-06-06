@@ -1,13 +1,13 @@
 /*
 	@file AbsoluteHit.js
-	@see https://bitbucket.org/pstrube/AbsoluteHit.git
+	@see https://github.com/ahrGNUts/AbsoluteHit.git
 	@version 1.4
 	@author Patrick Strube
 	
-	Commercial use prohibited.
+	Commercial use prohibited. 
 
 	TODO:
-	fix lag in safari -- may not be possible because apple?
+	fix lag in safari -- may not be possible because apple? (the way safari handles audio preloading)
 */
 
 const HIT_TIME = 100;

@@ -8,7 +8,7 @@ Please note: I've only tested this on a single page HTML website and a relativel
 
 ## Installation Instructions
 
-### Standard
+### "Standard"
 1. Copy AbsoluteHit.js and the assets folder to the directory in your site where JavaScript files live.
 2. Ensure there is a `<script>` tag that references AbssoluteHit.js on every page that you want it to be active.
 3. Enjoy a Web 2.0 experience like no other.
@@ -22,4 +22,4 @@ Please note: I've only tested this on a single page HTML website and a relativel
 ### TODO: Installation via a package manager?
 
 ## Issues
-+ This plugin doesn't seem to work all that well on Safari (I think due to the way Safari handles audio tags).
++ This plugin doesn't seem to work all that well on Safari (I think due to the way Safari handles audio tags). There's too much of a lag between the click and the sound, though this appears to be the only affected browser.
